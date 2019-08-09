@@ -184,4 +184,9 @@ view: bikeshare_trips {
     value_format: "0"
     label: "Median Rider Age"
   }
+
+  measure: last_ride {
+    sql: ${end_date} ;;
+    type:  max
+  }
 }
