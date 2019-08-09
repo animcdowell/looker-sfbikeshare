@@ -151,7 +151,7 @@ view: bikeshare_trips {
     sql: ${TABLE}.zip_code ;;
   }
 
-  measure: count_trips {
+  measure: count {
     type: count
     drill_fields: [start_station_name, end_station_name]
     label: "Count of Trips"
