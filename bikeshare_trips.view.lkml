@@ -174,6 +174,7 @@ view: bikeshare_trips {
   measure: average_rider_age {
     sql: ${rider_age} ;;
     type: average
+    value_format: "0"
     label: "Average Rider Age"
   }
 }
