@@ -39,6 +39,7 @@ view: bikeshare_trips {
   dimension: end_station_geom {
     type: string
     sql: ${TABLE}.end_station_geom ;;
+    hidden: yes
   }
 
   dimension: end_station_id {
@@ -49,11 +50,19 @@ view: bikeshare_trips {
   dimension: end_station_latitude {
     type: number
     sql: ${TABLE}.end_station_latitude ;;
+    hidden: yes
   }
 
   dimension: end_station_longitude {
     type: number
     sql: ${TABLE}.end_station_longitude ;;
+    hidden: yes
+  }
+
+  dimension: end_station_location {
+    type: string
+    sql: CONCAT(CAST(${end_station_latitude} as STRING),",",CAST(${end_station_longitude} as STRING)) ;;
+    hidden: yes
   }
 
   dimension: end_station_name {
@@ -88,6 +97,7 @@ view: bikeshare_trips {
   dimension: start_station_geom {
     type: string
     sql: ${TABLE}.start_station_geom ;;
+    hidden: yes
   }
 
   dimension: start_station_id {
@@ -98,11 +108,19 @@ view: bikeshare_trips {
   dimension: start_station_latitude {
     type: number
     sql: ${TABLE}.start_station_latitude ;;
+    hidden: yes
   }
 
   dimension: start_station_longitude {
     type: number
     sql: ${TABLE}.start_station_longitude ;;
+    hidden: yes
+  }
+
+  dimension: start_station_location {
+    type: string
+    sql: CONCAT(CAST(${start_station_latitude} as STRING),",",CAST(${start_station_longitude} as STRING)) ;;
+    hidden: yes
   }
 
   dimension: start_station_name {
