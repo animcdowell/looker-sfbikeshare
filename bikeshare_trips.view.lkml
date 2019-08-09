@@ -71,12 +71,18 @@ view: bikeshare_trips {
     sql: ${TABLE}.end_station_name ;;
   }
 
-  dimension: member_birth_year {
+  dimension: rider_birth_year {
     type: number
     sql: ${TABLE}.member_birth_year ;;
+    hidden: yes
   }
 
-  dimension: member_gender {
+  dimension: rider_age {
+    type:  number
+    sql: EXTRACT(year from CURRENT_DATE()) - ${rider_birth_year} ;;
+  }
+
+  dimension: rider_gender {
     type: string
     sql: ${TABLE}.member_gender ;;
   }
@@ -163,5 +169,11 @@ view: bikeshare_trips {
     value_format: "0.0"
     drill_fields: [trip_id, start_station_name, end_station_name, duration_sec]
     label: "Average Trip Duration (Minutes)"
+  }
+
+  measure: average_rider_age {
+    sql: ${rider_age} ;;
+    type: average
+    label: "Average Rider Age"
   }
 }
