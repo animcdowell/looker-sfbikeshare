@@ -60,8 +60,10 @@ view: bikeshare_trips {
   }
 
   dimension: end_station_location {
-    type: string
-    sql: CONCAT(CAST(${end_station_latitude} as STRING),",",CAST(${end_station_longitude} as STRING)) ;;
+    type: location
+    # sql: CONCAT(CAST(${end_station_latitude} as STRING),",",CAST(${end_station_longitude} as STRING)) ;;
+    sql_latitude: ${end_station_latitude} ;;
+    sql_longitude: ${end_station_longitude} ;;
   }
 
   dimension: end_station_name {
@@ -117,8 +119,10 @@ view: bikeshare_trips {
   }
 
   dimension: start_station_location {
-    type: string
-    sql: CONCAT(CAST(${start_station_latitude} as STRING),",",CAST(${start_station_longitude} as STRING)) ;;
+    type: location
+    # sql: CONCAT(CAST(${start_station_latitude} as STRING),",",CAST(${start_station_longitude} as STRING)) ;;
+    sql_latitude: ${start_station_latitude} ;;
+    sql_longitude: ${start_station_longitude} ;;
   }
 
   dimension: start_station_name {
