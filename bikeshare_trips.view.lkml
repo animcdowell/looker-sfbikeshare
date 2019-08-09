@@ -177,4 +177,11 @@ view: bikeshare_trips {
     value_format: "0"
     label: "Average Rider Age"
   }
+
+  measure: median_rider_age {
+    sql: ${rider_age} ;;
+    type: median
+    value_format: "0"
+    label: "Median Rider Age"
+  }
 }
