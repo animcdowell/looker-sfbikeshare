@@ -36,6 +36,16 @@ view: bikeshare_trips {
     sql: ${TABLE}.end_date ;;
   }
 
+  dimension: last_ride_completed {
+    sql: MAX(end_date) ;;
+    type: date_time
+  }
+
+  dimension: first_ride_started {
+    sql: MIN(start_date) ;;
+    type: date_time
+  }
+
   dimension: end_station_geom {
     type: string
     sql: ${TABLE}.end_station_geom ;;
@@ -185,8 +195,4 @@ view: bikeshare_trips {
     label: "Median Rider Age"
   }
 
-  measure: last_ride {
-    sql: ${end_date} ;;
-    type:  max
-  }
 }
