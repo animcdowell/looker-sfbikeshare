@@ -151,9 +151,10 @@ view: bikeshare_trips {
     label: "Count of Trips"
   }
 
-  measure: average_duration {
-    sql: ${duration_sec} ;;
+  measure: average_duration_min {
+    sql: ${duration_sec} / 60 ;;
     type:  average
+    value_format: "0"
     drill_fields: [trip_id, start_station_name, end_station_name, duration_sec]
     label: "Average Trip Duration"
   }
